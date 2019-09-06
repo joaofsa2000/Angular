@@ -1,0 +1,24 @@
+<h1>Nome:{{turma.name | uppercase}}</h1>
+
+
+<p>Descrição: {{turma.description}}</p>
+<p>Data de inicio: {{turma.beginDate | date}}</p>
+<h3>Alunos:</h3>
+<table>
+  <tr>
+  <th>ID</th>
+  <th>Nome</th>
+  <th>Idade</th>
+  <th>Alterar Nome</th>
+</tr>
+      <app-aluno></app-aluno>      
+</table>
+
+<table style="float:right;">
+  <tr>
+ <p>Alterar Descrição:</p>
+ <textarea  [(ngModel)]= "turma.description" id="descricao" ></textarea><br>
+ </tr>
+
+
+

@@ -1,0 +1,6 @@
+  <tr *ngFor="let aluno of alunos">
+    <td>{{aluno.id}}</td>
+    <td>{{aluno.name}}</td>
+    <td>{{aluno.age}}</td>
+    <td><input [(ngModel)]="aluno.name"></td>
+  </tr>
