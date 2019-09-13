@@ -1,6 +1,30 @@
-  <tr *ngFor="let aluno of alunos">
-    <td>{{aluno.id}}</td>
-    <td>{{aluno.name}}</td>
-    <td>{{aluno.age}}</td>
-    <td><input [(ngModel)]="aluno.name"></td>
-  </tr>
+<div class="form-group container">
+    <h6>Adicionar Aluno:</h6>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="nomeAluno">Nome:</label>
+          <input name="nomeAluno" #nameS type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="nomeAluno">Idade:</label>
+          <input name="nomeAluno" type="number" #ageS max="160" min="1" class="form-control">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-outline-dark" (click)="addStudent(nameS.value,ageS.value)">Adicionar</button>
+        </div>
+        </div>
+      </div>
+    </div>    
+<div class="d-flex ">
+  <div class="col-9">
+    <h3>Alunos:</h3>
+    <ul class="list-group">
+        <li class="list-group-item d-flex  align-items-center" *ngFor="let aluno of alunos">
+          <strong  (click)="selectStudent(aluno)" class="col-11">{{aluno.id}}{{aluno.name}}</strong><span>
+          <button class="btn btn-outline-danger " (click)="removeStudent(aluno.id)">X</button></span>
+          </li>   
+    </ul>
+</div>
+<app-alunos-dummy [aluno]="alunoSelecionado"></app-alunos-dummy>
+</div>

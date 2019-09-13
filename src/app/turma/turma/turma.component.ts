@@ -11,9 +11,16 @@ export class TurmaComponent implements OnInit {
     name:"TPSIP 10.18",
     description:"Programação",
     beginDate: new Date(2018,9,22)
-  }
+  };
+editableDesc=false;
+editableName=false;
   constructor() { }
-
+enableEditDesc(){
+  this.editableDesc = !this.editableDesc;
+}
+enableEditName(){
+  this.editableName = !this.editableName;
+}
   ngOnInit() {
   }
 

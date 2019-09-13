@@ -1,24 +1,21 @@
-<h1>Nome:{{turma.name | uppercase}}</h1>
-
-
-<p>Descrição: {{turma.description}}</p>
-<p>Data de inicio: {{turma.beginDate | date}}</p>
-<h3>Alunos:</h3>
-<table>
-  <tr>
-  <th>ID</th>
-  <th>Nome</th>
-  <th>Idade</th>
-  <th>Alterar Nome</th>
-</tr>
-      <app-aluno></app-aluno>      
-</table>
-
-<table style="float:right;">
-  <tr>
- <p>Alterar Descrição:</p>
- <textarea  [(ngModel)]= "turma.description" id="descricao" ></textarea><br>
- </tr>
+<div class="text-center">
+    <div class="form-inline justify-content-center mt-2"  *ngIf="editableName">
+      <div class="form-group mb-2 mr-2">
+        <input class="form-control " [(ngModel)]="turma.name">
+      </div>
+    <button class="btn btn-outline-success mb-2" *ngIf="editableName" (click)="enableEditName()">Gravar</button>
+    </div>
+  <h1 *ngIf="!editableName" (click)="enableEditName()">{{turma.name | uppercase}}</h1>
+  <div class="form-inline justify-content-center" *ngIf="editableDesc">
+      <div class="form-group mb-2 mr-2">
+        <input class="form-control "  [(ngModel)]="turma.description">
+      </div>
+    <button class="btn btn-outline-success mb-2" *ngIf="editableDesc" (click)="enableEditDesc()">Gravar</button>
+    </div>
+  <p *ngIf="!editableDesc" (click)="enableEditDesc()"> {{turma.description}}</p>
+  <p>Data de inicio: {{turma.beginDate | date}}</p>
+</div>
+      
 
 
 
