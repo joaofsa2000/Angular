@@ -1,14 +1,14 @@
-<div  class="col-12 position-fixed" *ngIf="aluno"> 
+<div  class="col-12 position-fixed" *ngIf="alunoSeleccionado"> 
      <h4>Detalhes Aluno:</h4>   
   <div class="list-group list-group-flush ">  
  
         <div class="list-group-item form-inline justify-content-center mt-2"  *ngIf="editableName">
           <div class="form-group mb-2 mr-2">
-            <input class="form-control " [(ngModel)]="aluno.name">
+            <input class="form-control " [(ngModel)]="alunoSeleccionado.name">
           </div>
           <button class="btn btn-outline-success mb-2" *ngIf="editableName" (click)="enableEditName()">Gravar</button>
           </div>
-    <li class="list-group-item" *ngIf="!editableName" (click)="enableEditName()"><strong>Nome:</strong> {{aluno.name}}</li>
-    <li class="list-group-item"><strong>Idade:</strong> {{aluno.age}}</li>
+    <li class="list-group-item" *ngIf="!editableName" (click)="enableEditName()"><strong>Nome:</strong> {{alunoSeleccionado.name}}</li>
+    <li class="list-group-item"><strong>Idade:</strong> {{alunoSeleccionado.age}}</li>
   </div>
 </div>

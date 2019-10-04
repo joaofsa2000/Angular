@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Aluno} from '../../aluno';
-import {AlunoService} from '../aluno_.service';
+import {AlunoService} from '../aluno.service';
+
 @Component({
   selector: 'app-aluno',
   templateUrl: './aluno.component.html',
@@ -8,7 +9,7 @@ import {AlunoService} from '../aluno_.service';
 })
 export class AlunoComponent implements OnInit {
   alunos: Aluno[];
-  alunoSelecionado: Aluno;
+  alunoSeleccionado: Aluno;
   alunoID=1;
   constructor(private studentsService: AlunoService) { }
 
@@ -17,16 +18,15 @@ export class AlunoComponent implements OnInit {
   }
 
 selectStudent(aluno: Aluno){
-  this.alunoSelecionado = aluno;
+  this.studentsService.setAluno(aluno);
 }
 addStudent(name: string, age: number){
   if(name && age){
   this.alunos.push(new Aluno(this.alunoID++,name,age));
   }
 }
-removeStudent(aluno: Aluno){
-  if(aluno){
-    console.log(aluno);
+removeStudent(aluno: number){
+  if(aluno){    
     let index = this.findWithAttr(aluno);    
     this.alunos.splice(index,1);
   }
@@ -35,7 +35,6 @@ findWithAttr(aluno: number) {
   
     for(let i = 0; i < this.alunos.length; i ++) {
         if(this.alunos[i].id == aluno) {
-         console.log('true');
             return i;
         }
     }

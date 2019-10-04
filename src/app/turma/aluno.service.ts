@@ -11,16 +11,19 @@ export class AlunoService {
   constructor(private http:HttpClient) { }
 
 
-getStudents(): Observable<Aluno[]> {
+getStudents(): Observable<Aluno[]> {  
   return of(ALUNOS);
     // return this.http.get<Aluno[]>('https://swapi.co/api/people/');
 }
 removeStudent(aluno: Aluno){
   
 }
-getAlunoById(id:number): Observable<Aluno> {
-    // return of(ALUNOS[id]);
-    return this.http.get<Aluno>('https://swapi.co/api/people/'+id);
+ getAluno(): Observable<Aluno> {
+    return this.alunoSeleccionado;
+  }
+getAlunoById(id:number): Observable<Aluno> {   
+     return of(ALUNOS[id]);
+   // return this.http.get<Aluno>('https://swapi.co/api/people/'+id);
   }
 
   setAluno(aluno): void {    

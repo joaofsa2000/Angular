@@ -20,11 +20,10 @@
   <div class="col-9">
     <h3>Alunos:</h3>
     <ul class="list-group">
-        <li class="list-group-item d-flex  align-items-center" *ngFor="let aluno of alunos">
-          <strong  (click)="selectStudent(aluno)" class="col-11">{{aluno.id}}{{aluno.name}}</strong><span>
+        <li class="list-group-item d-flex  align-items-center" *ngFor="let aluno of alunos; index as alunoId">
+          <strong  (click)="selectStudent(aluno)" class="col-11" ><a  [title]="aluno.name" [routerLink]="['/alunos', alunoId]">{{aluno.id}}-{{aluno.name}}</a></strong><span>
           <button class="btn btn-outline-danger " (click)="removeStudent(aluno.id)">X</button></span>
           </li>   
     </ul>
 </div>
-<app-alunos-dummy [aluno]="alunoSelecionado"></app-alunos-dummy>
 </div>
