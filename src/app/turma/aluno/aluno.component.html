@@ -16,12 +16,12 @@
         </div>
       </div>
     </div>    
-<div class="d-flex ">
+<div class="d-flex " *ngIf="alunos">
   <div class="col-9">
     <h3>Alunos:</h3>
     <ul class="list-group">
         <li class="list-group-item d-flex  align-items-center" *ngFor="let aluno of alunos; index as alunoId">
-          <strong  (click)="selectStudent(aluno)" class="col-11" ><a  [title]="aluno.name" [routerLink]="['/alunos', alunoId]">{{aluno.id}}-{{aluno.name}}</a></strong><span>
+          <strong  (click)="selectStudent(aluno)" class="col-11" ><a  [title]="aluno.name" [routerLink]="['/alunos', alunoId]">{{aluno.name.first}} {{aluno.name.last}}</a></strong><span>
           <button class="btn btn-outline-danger " (click)="removeStudent(aluno.id)">X</button></span>
           </li>   
     </ul>

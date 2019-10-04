@@ -28,8 +28,7 @@ export class AlunosDummyComponent implements OnInit {
  this.route.paramMap
              .subscribe(params => this.idAlunoSeleccionado = +params.get('alunoId'));
             
-    this.alunosService.getAlunoById(this.idAlunoSeleccionado)
-              .subscribe(aluno => this.alunoSeleccionado = aluno);
+    this.alunosService.getAlunoById(this.idAlunoSeleccionado).subscribe(aluno => this.alunoSeleccionado = aluno);
      console.log(this.alunoSeleccionado);
   }
 }

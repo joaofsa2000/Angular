@@ -8,7 +8,7 @@ import {AlunoService} from '../aluno.service';
   styleUrls: ['./aluno.component.css']
 })
 export class AlunoComponent implements OnInit {
-  alunos: Aluno[];
+  alunos: Aluno;
   alunoSeleccionado: Aluno;
   alunoID=1;
   constructor(private studentsService: AlunoService) { }
@@ -41,7 +41,8 @@ findWithAttr(aluno: number) {
     return -1;
 }
 getStudents():void{
-  this.studentsService.getStudents().subscribe(dados=>this.alunos=dados);
+  this.studentsService.getStudents().subscribe(dados=>this.alunos=dados.results);
+
 }
 
 }
