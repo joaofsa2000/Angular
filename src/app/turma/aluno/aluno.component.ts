@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Aluno} from '../../aluno';
-import {StudentsService} from '../students.service';
+import {AlunoService} from '../aluno_.service';
 @Component({
   selector: 'app-aluno',
   templateUrl: './aluno.component.html',
@@ -10,7 +10,7 @@ export class AlunoComponent implements OnInit {
   alunos: Aluno[];
   alunoSelecionado: Aluno;
   alunoID=1;
-  constructor(private studentsService: StudentsService) { }
+  constructor(private studentsService: AlunoService) { }
 
   ngOnInit() {
     this.getStudents();
@@ -26,24 +26,23 @@ addStudent(name: string, age: number){
 }
 removeStudent(aluno: Aluno){
   if(aluno){
-    let index = this.findWithAttr(aluno);
-    console.log(index);
+    console.log(aluno);
+    let index = this.findWithAttr(aluno);    
     this.alunos.splice(index,1);
   }
 }
-findWithAttr(aluno: Aluno) {
-  console.log(aluno.id);
+findWithAttr(aluno: number) {
+  
     for(let i = 0; i < this.alunos.length; i ++) {
-      console.log(this.alunos[i].id);      
-        if(this.alunos[i].id == aluno.id) {
-          console.log(i);
+        if(this.alunos[i].id == aluno) {
+         console.log('true');
             return i;
         }
     }
     return -1;
 }
 getStudents():void{
-  this.alunos= this.studentsService.getStudents();
+  this.studentsService.getStudents().subscribe(dados=>this.alunos=dados);
 }
 
 }
