@@ -8,7 +8,6 @@
           </div>
           <button class="btn btn-outline-success mb-2" *ngIf="editableName" (click)="enableEditName()">Gravar</button>
           </div>
-    <li class="list-group-item" *ngIf="!editableName" (click)="enableEditName()"><strong>Nome:</strong> {{alunoSeleccionado.name}}</li>
-    <li class="list-group-item"><strong>Idade:</strong> {{alunoSeleccionado.age}}</li>
+    <li class="list-group-item" *ngIf="!editableName" (click)="enableEditName()"><strong>Nome:</strong> {{ alunoSeleccionado.name}}</li>
   </div>
 </div>

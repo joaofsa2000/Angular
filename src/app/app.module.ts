@@ -9,6 +9,7 @@ import { TurmaComponent } from "./turma/turma/turma.component";
 import { AlunoComponent } from "./turma/aluno/aluno.component";
 import { AlunosDummyComponent } from "./turma/alunos-dummy/alunos-dummy.component";
 import { AlunoService } from "./turma/aluno.service";
+import { ReversePipe } from './reverse.pipe';
 
 const routes: Routes = [
   { path: '', component: AlunoComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
     HelloComponent,
     TurmaComponent,
     AlunoComponent,
-    AlunosDummyComponent
+    AlunosDummyComponent,
+    ReversePipe
   ],
   bootstrap: [AppComponent],
   providers: [AlunoService]

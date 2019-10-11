@@ -41,7 +41,7 @@ findWithAttr(aluno: number) {
     return -1;
 }
 getStudents():void{
-  this.studentsService.getStudents().subscribe(dados=>this.alunos=dados.results);
+  this.studentsService.getStudents().subscribe(dados=>console.log(dados.results));
 
 }
 
